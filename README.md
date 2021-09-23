@@ -25,6 +25,7 @@ https://github.com/goitacademy/javascript-homework/tree/main/homework-08
 Разметка элемента галереи
 Ссылка на оригинальное изображение должна храниться в data-атрибуте source на элементе img, и указываться в href ссылки (это необходимо для доступности).
 
+>```
 ><li class="gallery__item">
 >  <a
 >    class="gallery__link"
@@ -38,6 +39,7 @@ https://github.com/goitacademy/javascript-homework/tree/main/homework-08
 >    />
 >  </a>
 ></li>
+>```
 
 Дополнительно
 Следующий функционал не обязателен при сдаче задания, но будет хорошей практикой по работе с событиями.
