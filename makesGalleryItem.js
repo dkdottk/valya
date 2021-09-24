@@ -21,7 +21,7 @@ const addLink = (item) => {
   return aEl;
 };
 
-export const makesGalleryItem = (items) => {
+export default(items) => {
   return items.map((item) => {
     const liEl = addListElement();
     const imgEl = addImage(item);

@@ -1,5 +1,5 @@
 import galleryItems from './items.js';
-import { makesGalleryItem } from './makesGalleryItem.js';
+import makesGalleryItem from './makesGalleryItem.js';
 import { onClickHandler, onCloseHandler, onPushEsc } from './onClickOnPicture.js';
 
 const gallery = document.querySelector('.js-gallery');
