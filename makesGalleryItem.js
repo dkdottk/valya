@@ -1,36 +1,40 @@
-const addListElement = () => {
-  const liEl = document.createElement('li');
-  liEl.className = 'gallery__item';
+const setAttributes = (el, attrs) => {
+  for (var key in attrs) {
+    el.setAttribute(key, attrs[key]);
+  }
+  return el;
+};
+
+const addListElement = (el) =>
+  setAttributes(el, { className: 'gallery__item' });
+
+const addImage = (el, item) =>
+  setAttributes(el, {
+    className: 'gallery__image',
+    src: item.preview,
+    data: item.original,
+    alt: item.description,
+    width: '340',
+  });
+
+const addLink = (el, item) =>
+  setAttributes(el, {
+    className: 'gallery__link',
+    href: item.original,
+  });
+
+const createObject = (item) => {
+  const liEl = addListElement(document.createElement('li'));
+  const imgEl = addImage(document.createElement('img'), item);
+  const aEl = addLink(document.createElement('a'), item);
+
+  aEl.appendChild(imgEl);
+  liEl.appendChild(aEl);
+  liEl.appendChild(document.createElement('li'));
+
   return liEl;
 };
 
-const addImage = (item) => {
-  const imgEl = document.createElement('img');
-  imgEl.className = 'gallery__image';
-  imgEl.src = item.preview;
-  imgEl.data = item.original;
-  imgEl.alt = item.description;
-  imgEl.width = '340';
-  return imgEl;
-};
+const makesGalleryItem = (items) => items.map((item) => createObject(item));
 
-const addLink = (item) => {
-  const aEl = document.createElement('a');
-  aEl.className = 'gallery__link';
-  aEl.href = item.original;
-  return aEl;
-};
-
-export default(items) => {
-  return items.map((item) => {
-    const liEl = addListElement();
-    const imgEl = addImage(item);
-    const aEl = addLink(item);
-
-    aEl.appendChild(imgEl);
-    liEl.appendChild(aEl);
-    liEl.appendChild(document.createElement('li'));
-
-    return liEl;
-  });
-};
+export default makesGalleryItem;

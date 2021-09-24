@@ -1,8 +1,10 @@
+// const lightboxImage = document.querySelector('.lightbox__image')
+// const lightboxJS = document.querySelector('.js-lightbox')
+
 function addIsOpenToLightbox(imageInfo) {
   const image = document.querySelector('.lightbox__image');
-  image.src = imageInfo.data;
+  image.src = imageInfo.getAttribute('data');
   image.alt = imageInfo.alt;
-
   document.querySelector('.js-lightbox').classList.add('is-open');
 }
 
