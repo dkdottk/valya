@@ -6,7 +6,9 @@ import {
   onPushEsc,
 } from './onClickOnPicture.js';
 
-const gallery = document.querySelector('.js-gallery');
+const gallery = document
+  .querySelector('.js-gallery');
+const gall = document.querySelector('.js-gallery');
 
 const items = makesGalleryItem(galleryItems);
 gallery.append(...items);
