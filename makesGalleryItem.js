@@ -1,15 +1,9 @@
-const setAttributes = (el, attrs) => {
-  for (var key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-  return el;
-};
+import setAttributes from './setAttributes.js';
 
-const addListElement = (el) =>
-  setAttributes(el, { className: 'gallery__item' });
+const addListElement = (e) => setAttributes(e, { className: 'gallery__item' });
 
-const addImage = (el, item) =>
-  setAttributes(el, {
+const addImage = (e, item) =>
+  setAttributes(e, {
     className: 'gallery__image',
     src: item.preview,
     data: item.original,
@@ -17,8 +11,8 @@ const addImage = (el, item) =>
     width: '340',
   });
 
-const addLink = (el, item) =>
-  setAttributes(el, {
+const addLink = (e, item) =>
+  setAttributes(e, {
     className: 'gallery__link',
     href: item.original,
   });

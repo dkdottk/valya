@@ -1,34 +1,37 @@
-// const lightboxImage = document.querySelector('.lightbox__image')
-// const lightboxJS = document.querySelector('.js-lightbox')
+import setAttributes from './setAttributes.js';
 
-function addIsOpenToLightbox(imageInfo) {
-  const image = document.querySelector('.lightbox__image');
-  image.src = imageInfo.getAttribute('data');
-  image.alt = imageInfo.alt;
-  document.querySelector('.js-lightbox').classList.add('is-open');
-}
+const lightboxImage = document.querySelector('.lightbox__image');
+const lightboxJS = document.querySelector('.js-lightbox');
 
-export function onClickHandler(e) {
+const addIsOpenToLightbox = (imageInfo) => {
+  setAttributes(lightboxImage, {
+    src: imageInfo.getAttribute('data'),
+    alt: imageInfo.alt,
+  });
+  lightboxJS.classList.add('is-open');
+};
+
+export const onClickHandler = (e) => {
   e.preventDefault();
 
   addIsOpenToLightbox(e.target);
-}
+};
 
-function removeLightBox() {
-  document.querySelector('.lightbox__image').src = '';
-  document.querySelector('.js-lightbox').classList.remove('is-open');
-}
+const removeLightBox = () => {
+  lightboxImage.src = '';
+  lightboxJS.classList.remove('is-open');
+};
 
-export function onCloseHandler(e) {
+export const onCloseHandler = (e) => {
   e.preventDefault();
 
   removeLightBox();
-}
+};
 
-export function onPushEsc(e) {
+export const onPushEsc = (e) => {
   e.preventDefault();
 
   if (e.keyCode === 27) {
     removeLightBox();
   }
-}
+};
