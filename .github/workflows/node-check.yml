@@ -1,0 +1,27 @@
+name: Node.js CI
+jobs:
+  build:
+
+
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - name: ESlint
+      run: ./node_modules/.bin/eslint *.js
+    - name: Commit changes
+      if: always()
+      uses: stefanzweifel/git-auto-commit-action@v4.1.2
+      with:
+        commit_message: Apply formatting changes
+
+    - run: npm ci
+    - run: npm run build --if-present
+
